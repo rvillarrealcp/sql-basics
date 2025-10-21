@@ -1,4 +1,7 @@
 -- Schema
+DROP TABLE IF EXISTS addresses;
+DROP TABLE IF EXISTS classes;
+DROP TABLE IF EXISTS enrollments;
 DROP TABLE IF EXISTS students;
 CREATE TABLE students (
   id           serial PRIMARY KEY,
@@ -12,7 +15,7 @@ CREATE TABLE addresses (
 id             serial PRIMARY KEY,
 line_1         varchar(255) NOT NULL,
 city           varchar(255),
-state          varchar(2),
+state          varchar(255),
 zipcode        INT
 );
 
@@ -23,8 +26,8 @@ CREATE TABLE classes (
 );
 
 CREATE TABLE enrollments (
-  id          serial PRIMARY KEY,
-  students_id   INT,
+  id          INT PRIMARY KEY,
+  student_id   INT,
   class_id      INT,
   grade         varchar(1)
 );
